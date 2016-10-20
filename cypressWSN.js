@@ -19,11 +19,9 @@
 
                 function onScan(peripheral) {
                     var mfrData;
-                    if (peripheral.advdata) {
-                        mfrData = peripheral.advdata.manufacturerData['0131'];
-                    } else {
-                        mfrData = peripheral.getMfrData('0131');
-                    }
+
+                    mfrData = peripheral.getMfrData('0131');
+                    
                     if (mfrData) {
                         mfrData = mfrData.toUpperCase();
                         if (mfrData.indexOf("0005000100001000800000805F9B0131") > -1) {
@@ -79,16 +77,6 @@
                 console.log(err);
             });
         }
-
-        /* ------- cypressWSN Handling Functions ------- */
-
-        getTemperature() {
-            return this.temperature;
-        };
-
-        getHumidity(hex_humidity) {
-            return this.humidity;
-        };
     }
 
     window.cypressWSN = new CypressWSN();
