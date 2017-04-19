@@ -17,7 +17,7 @@ app.controller('mainController', function($scope, $mdToast){
     $scope.cypressWSN = cypressWSN;
 
     // Disabling the mouse right click event
-    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('contextmenu', function(event) { event.preventDefault();});
     
     // ---------- Graph Code START -----------
     $scope.options = {
